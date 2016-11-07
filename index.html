@@ -19,6 +19,7 @@
 				<header>
 					<span class="image avatar"><img src="images/vaggelis.jpg" alt="" /></span>
 					<h1 id="logo"><a href="#">Vaggelis Atlidakis</a></h1>
+					<p>"You can cut all the flowers but you cannot keep Spring from coming.”</p>
 				</header>
 				<nav id="nav">
 					<ul>
@@ -83,64 +84,94 @@
 								<div class="container">
 									<h3>Research</h3>
                                     <p>
-                                    My research interests span broad areas of computer systems, particularly operating
-                                    systems, distributed systems, security, and
-                                    applications of machine learning (ML) to systems.
-                                    My current research focuses on analyzing and developing operating systems and programming abstractions for
-                                    developers of modern applications, such as mobile and ML applications. These applications
-                                    are fundamentally different from traditional, desktop applications and require renewed support from operating
-                                    systems and development environments.
-
-                                    <h4>Current Projects</h3>
-                                    <h5>Measurement of POSIX Abstractions in Modern OSes</h5>
-                                    The POSIX standard for APIs was developed over 25 years ago. We explored how applications in Android, OS X,
-                                    and Ubuntu Linux use these interfaces today and found that weaknesses or deficiencies in
-                                    POSIX have led to divergence in how modern applications use the POSIX APIs. In this article, we present our
-                                    analysis of over a million applications and show how developers have created workarounds to shortcut POSIX and
-                                    implement functionality missing from POSIX.
+					My research interests are in computer systems, including operating systems
+					(OSes), distributed systems, and machine learning (ML) systems. Current, I focus
+					on addressing challenges inherent in the development of modern mobile, cloud,
+					and ML applications. These applications are fundamentally different from
+					traditional desktop applications and require renewed support from operating
+					systems as well as new development environments. I have been running measurement
+					studies to identify missing or mismatched abstractions for modern applications,
+					and invent new programming abstractions and systems to support the needs of
+					modern applications. Following are some projects in this space.
+					
+				    <h4>Current Projects</h3>
+				    <h5><u><a href="resources/POSIXpaper.pdf">Measurement of POSIX Abstractions in Modern OSes</a></u></h5>
+				    In our latest work, we demonstrated that the 
+				    abstractions offered by
+				    traditional OS standards, such as the POSIX API, are insufficient to support
+				    modern applications, such as those running on Android, iOS, and OSX. Modern
+				    applications rely upon very different abstractions, which are currently supplied
+				    by user-space libraries implemented atop POSIX. This layering
+				    causes mismatches, inefficiencies, and even security risks.  For example, we
+				    found that new abstractions typically rely on POSIX extension APIs (i.e., 
+				    ioctl) to implement their functionality, suggesting that POSIX lacks
+				    appropriate abstractions for modern
+				    workloads. Extension APIs are problematic, because their invocations cannot be
+				    mediated by the OS, putting pressure on user-space libraries and kernel device
+				    drivers to implement correct and coherent protections of these invocations.
+				    We are now studying specific implications and identifying the new OS abstractions
+				    needed to more securely support modern applications.
                                     <p>
+					
 
-                                    <h5> Testing Tools for Data-Driven ML Applications</h5>
-                                    In today’s data-driven world, programmers routinely incorporate user data into
-                                    complex algorithms, heuristics, and application pipelines. While often
-                                    beneficial, this practice can have unintended and detrimental consequences, such
-                                    as the discriminatory effects identified in
-                                    <a href="http://www.wsj.com/articles/SB10001424127887323777204578189391813881534">Staples’ online pricing algorithm</a>
-                                    and the racially offensive labels recently found in Google’s image tagger. We
-                                    argue that such effects are bugs that should be tested for and debugged in a
-                                    manner similar to functionality,
-                                    performance, and security bugs. We develop
-                                    tools that detect unwarranted associations between an
-                                    algorithm’s outputs (e.g., prices or labels) and user subpopulations, including
-                                    protected groups (e.g., defined by race or gender).
-                                    <p>
+                                    <h5><u><a href="resources/fairtest.pdf">Testing Tools for Data-Driven ML Applications</a></u></h5>
+				    A key aspect characterizing modern applications is their increased reliance on
+				    data and data-driven decision making.  While often beneficial, this practice can
+				    have subtle detrimental consequences, such as discriminatory or racially
+				    offensive effects. We argue that such effects are bugs that should be tested for
+				    and debugged in a manner similar to functionality, reliability, and performance
+				    bugs. To this end, we developed Fairtest, a testing toolkit for data-driven
+				    applications that identifies unwarranted association between an application’s
+				    outputs and user subpopulations, including sensitive groups (e.g., defined by
+				    race or gender). Our paper, accepted in the second European Symposium on
+				    Security and Privacy, has attracted attention from several investigative
+				    journalists, who are considering using it to study unwarranted associations in
+				    several applications.
+				    <p>
 
-                                    <h4>Previous Projects</h3>
+                               	    <h5><u>Security of Machine Learning Systems under Adversarial Settings</u></h5>
+				    State of the art machine learning systems, such as those using deep neural
+				    networks for classification and regression, have recently achieved
+				    unprecedented success in a variety of tasks ranging from image and speech
+				    recognition to data compression.
+				    Recent work however has made an intriguing discovery: these systems are
+				    extremely susceptible to adversarial attacks.
+				    That is, an adversary can modify correctly classified samples by adding an
+				    infinitestament amount of carefully crafed noise that will force the model
+				    to misclassify (with high confidence) samples only marginaly different from the
+				    original ones. In lieu of these vulnerabilities, I am currently working on defences to harden
+				    machine learning systems and increase their robustness against adversarial attacks. My long-term
+				    goal is to contribute solutions that will shed light into arcane ML models and will arm developers
+				    with powerful debugging primitives to help identify and address subtle security, performance, and
+				    reliability challenges. 
+				    <p>
+
+				    <h4>Previous Projects</h4>
                                     <p>
+                                    
                                     Before joining Columbia, I worked on several projects related to distributed, peer-to-peer
-                                    systems, such as BitTorrent. In one project, I enhanced BitTorrent with an optimistic unchocking policy that
+                                    systems, such as BitTorrent. In one of our <a href="resources/JPDC2013.pdf">projects</a>, we enhanced BitTorrent with an optimistic unchocking policy that
                                     improves the quality of inter-connections amongst peers and increases
-                                    the number of peers that are both directly connected and interested in cooperation. My
+                                    the number of peers that are both directly connected and interested in cooperation. Our
                                     evaluation showed that the approach significantly outperforms BitTorrent’s
                                     original unchocking policy by (a) increasing
                                     the number of directly cooperating peers, (b) easing the
                                     load on seeders by having more peers act as
-                                    data intermediaries, and (c) shortening the
-                                    bootstrapping period for fresh peers.
+                                    data intermediaries, and (c) shortening the bootstrapping period for fresh peers.
                                     <p>
-								</div>
-							</section>
-						<!-- Three -->
-							<section id="three">
-								<div class="container">
-									<h3>Publications</h3>
+				</div>
+				</section>
+			
+			<!-- Three -->
+			<section id="three">
+			<div class="container">
+			<h3>Publications</h3>
                                     <p>
-									<h4>Conferences</h3>
-
-
+              			    <h4>Conferences</h3>
+			            <!-- Conferences -->
                                     <li>Vaggelis Atlidakis, Jeremy Andrus, Roxana Geambasu, Dimitris Mitropoulos, and Jason Nieh.
                                     <b>''POSIX Abstractions in Modern Operating Systems: The Old, the New, and the Missing'', </b>
-                                    <i>In Proceedings of the European Conference on Computer Systems (EuroSys '16), London, UK, April 2016.
+                                    <i>In Proceedings of the eleventh European Conference on Computer Systems (EuroSys '16), London, UK, April 2016.
                                     <p>
                                     [<a href="resources/POSIXpaper.pdf">paper</a>]
                                     [<a href="resources/POSIXprez.pdf">slides</a>]
@@ -167,14 +198,13 @@
                                     <p>
                                     <p>
 
-						            <!-- Conferences -->
-
                                     <h4>Journals & Magazines</h3>
+                                    <!-- Journals &  Magazines -->
                                     <li>Vaggelis Atlidakis, Jeremy Andrus, Roxana Geambasu, Dimitris Mitropoulos, and Jason Nieh.
                                     <b>''POSIX has become outdated'',  </b>
                                     <i> USENIX ;login: Magazine, 41(3), Fall 2016.
                                     <p>
-                                    [<a href="resources/POSIXmagazine.pdf">article (draft)</a>]
+                                    [<a href="resources/POSIXmagazine.pdf">article</a>]
                                     </li>
                                     <p>
 
@@ -187,22 +217,20 @@
                                     </i>
                                     </li>
                                     <p>
-
-                                    <!-- Journals &  Magazines -->
-                                    </p>
-								</div>
-							</section>
-						<!-- Four -->
+				</div>
+				</section>
+			
+				<!-- Four -->
                         	<section id="four">
-								<div class="container">
-									<h3>Personal</h3>
+				<div class="container">
+				<h3>Personal</h3>
                                     <p>
                                     I was born in Athens, Greece and used to live in Galatsi. My mother, Chrysoula, is now on pension and my father, Pavlos, works for the public
                                     sector. I have a brother, Konstantinos, who is an undergrad at <a href="http://www.aueb.gr/index_en.php">Athens University of Economis
                                     and Business</a>, Department of Statistics.<p> Life taught me not to forget people who stood by me and helped me realize my dreams; and there
                                     are plenty of them! First of all, I am deeply thankful to my parents who dedicated themselves to raising me and my brother. I am also grateful
-                                    to my high-school teacher Aris Arabatzis who helped me find out my love for sciences. Last but not least, I feel deep respect for Alex Delis,
-                                    my advisor during my undergraduate studies who helped me tremendously during my first research steps.
+                                    to my high-school teacher Aris Arabatzis who helped me find out my love for sciences. Last but not least, I feel deep respect for my undergrad advisors,
+				    Alex Delis and mema Roussopoulos, who helped me tremendously during my first research steps.
                                     <p>
 
                                     Apart from computer science, I am also interested in international history, politics, and macro-economics. I am a passionate opponent of
@@ -221,28 +249,27 @@
                                     &ldquo;Above all, always be capable of feeling deeply any injustice committed against anyone, anywhere in the world.&rdquo;
                                     <!-- <footer>--Ernesto Che Guevara</footer> -->
                                     </blockquote>
-
-
-                                    Being Greek, I am also interested in
+                                    <!-- Being Greek, I am also interested in
                                     greek history and in the Greek political arena. If you are fluent in
                                     greek and willing to read some greatly inspiring speeches, you should take a look at these words:
                                     <ul>
                                         <li><a href="resources/kolokotronis.pdf">Kolokotronis' Words</a>
                                         <li><a href="resources/aris.pdf">Aris Velouchiotis' Words</a>
                                     </ul>
-                                    </p>
-								</div>
-							</section>
-						<!-- Five -->
+                                    </p> -->
+				</div>
+				</section>
+			
+				<!-- Five -->
                         	<section id="five">
-								<div class="container">
-									<h3>Contact</h3>
+				<div class="container">
+				<h3>Contact</h3>
                                     <p>
                                     The preferable way to reach me is via e-mail.
                                     </p>
-						            <a class="icon fa-envelope"> v.atlidakis -*at- gmail -*dot- com<span class="label"></span></a>
-								</div>
-							</section>
+			            <a class="icon fa-envelope"> v.atlidakis -*at- gmail -*dot- com<span class="label"></span></a>
+				</div>
+				</section>
 					</div>
 				<!-- Footer -->
 					<section id="footer">
