@@ -1,0 +1,196 @@
+% LaTeX resume using res.cls
+\documentclass[overlapped,9pt]{res}
+\usepackage{url}
+%\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
+%\usepackage{newcent}   % uses new century schoolbook postscript font
+\setlength{\textwidth}{6.0in} % set width of text portion
+
+\begin{document}
+%\def\los{{\sl $\ell$OS}\xspace}
+\newcommand{\los}{{\sl $\ell$OS}}
+
+% Center the name over the entire width of resume:
+ \moveleft.5\hoffset\centerline{\LARGE\bf Evangelos (Vaggelis) Atlidakis}
+ \vspace{5pt}
+% Draw a horizontal line the whole width of resume:
+ %\moveleft\hoffset\vbox{\hrule width\resumewidth height 1pt}\smallskip
+% address begins here
+% Again, the address lines must be centered over entire width of resume:
+ \moveleft.5\hoffset\centerline{400 West 119th Street}
+ \moveleft.5\hoffset\centerline{New York, NY 10027}
+ \moveleft.5\hoffset\centerline{vatlidak@cs.columbia.edu}
+ % \moveleft.5\hoffset\centerline{(205) 566-1765}
+ \moveleft.5\hoffset\centerline{\url{http://www.cs.columbia.edu/~vatlidak/}}
+
+\frenchspacing
+\begin{resume}
+
+
+\section{RESEARCH INTERESTS}
+  Operating Systems, Distributed Systems, Machine Learning Systems
+
+\section{EDUCATION}
+  {\bf Columbia University}, New York, NY \hfill Oct. 2013 - Present\\
+  Ph.D. in Computer Science \\
+  GPA: 3.9/4 (current)\\
+  Advisors: Roxana Geambasu, Jason Nieh \\
+  %{\bf Army Service}, Athens, Greece \hfill Aug. 2011 - Aug. 2012 \\
+  %Trained with the ``Land Minefield Clearance Battalion''\\
+  {\bf University of Athens}, Athens, Greece \hfill Sep. 2005 - Aug. 2011 \\
+  Bachelor of Informatics and Telecommunications \\
+  Advisors: Alex Delis, Mema Roussopoulos\\
+  GPA: 9/10\\
+  {\bf Helsinki University of Technology}, Helsinki, Finland \hfill Jan. 2009 - Jun. 2009\\
+  Exchange Student, Department of Computer Science \\
+  GPA: 10/10
+
+\section{EXPERIENCE}
+  % {\sl Graduate Research Assistant} \hfill Oct. 2013 - Present \\
+  % Columbia University, New York, NY\\
+  % Conducting research in Operating Systems and  Privacy \& Transparency
+  {\sl Graduate Teaching Assistant} \hfill Spring 2014 \\
+  Columbia University, New York, NY \\
+  COMS E6998: Advanced Distributed Systems (Instructor: Roxana Geambasu)
+
+
+  {\sl Graduate Teaching Assistant} \hfill Fall 2013\\
+  Columbia University, New York, NY \\
+  COMS W4995: Distributed Systems (Instructor: Roxana Geambasu)
+
+  {\sl Research Associate} \hfill Sep. 2012, May - Sep. 2013 \\
+  CERN, Geneva, Switzerland\\
+  % Project Associate in CERN, IT Department.\\
+  Worked on the Agile Infrastructure project; a IaaS CERN-private cloud\\
+  Supervisor: Ignacio Reguero
+
+  {\sl Undergraduate Researcher} \hfill Feb. 2010 - May 2011 \\
+  University of Athens, Athens, Greece\\
+  Conducted research on distributed systems\\
+  Advisors: Alex Delis and Mema Roussopoulos
+
+\section{RESEARCH:}
+My research interests are in computer systems, including operating systems
+(OSes), distributed systems, and machine learning (ML) systems. Current, I focus
+on addressing challenges inherent in the development of modern mobile, cloud,
+and ML applications. These applications are fundamentally different from
+traditional desktop applications and require renewed support from operating
+systems as well as new development environments. I have been running measurement
+studies to identify missing or mismatched abstractions for modern applications,
+and invent new programming abstractions and systems to support the needs of
+modern applications. Following are some example projects in this space.
+
+\textbf{Measurement of POSIX Abstractions in Modern OSes:}\\
+In my latest work [1, 2], I demonstrated that the abstractions offered by
+traditional OS standards, such as the POSIX API, are insufficient to support
+modern applications, such as those running on Android, iOS, and OSX. Modern
+applications rely upon very different abstractions, which are currently supplied
+by user-space libraries implemented atop POSIX. This layering
+causes mismatches, inefficiencies, and even security risks.  For example, I
+found that new abstractions typically rely on POSIX extension APIs (i.e., {\tt
+ioctl}) to implement their functionality, suggesting that POSIX lacks
+appropriate abstractions for modern
+workloads. Extension APIs are problematic, because their invocations cannot be
+mediated by the OS, putting pressure on user-space libraries and kernel device
+drivers to implement correct and coherent protections of these invocations.
+I am now studying specific implications and identifying the new OS abstractions
+needed to more securely support modern applications.
+
+\textbf{Testing Tools for Data-Driven Applications:}\\
+A key aspect characterizing modern applications is their increased reliance on
+data and data-driven decision making.  While often beneficial, this practice can
+have subtle detrimental consequences, such as discriminatory or racially
+offensive effects. I argue that such effects are bugs that should be tested for
+and debugged in a manner similar to functionality, reliability, and performance
+bugs. To this end, I developed {\em FairTest}, a testing toolkit for data-driven
+applications that identifies unwarranted association between an application’s
+outputs and user subpopulations, including sensitive groups (e.g., defined by
+race or gender). Our paper [3], accepted in the second European Symposium on
+Security and Privacy, has attracted attention from several investigative
+journalists, who are considering using it to study unwarranted associations in
+several applications.
+
+\textbf{Security of Machine Learning Systems under Adversarial Settings:}\\
+State of the art machine learning systems, such as those using deep neural
+networks for classification and regression, have recently achieved
+unprecedented success in a variety of tasks ranging from image and speech
+recognition to data compression.
+Recent work however has made an intriguing discovery: these systems are
+extremely susceptible to adversarial attacks.
+That is, an adversary can modify correctly classified samples by adding an
+infinitestament amount of carefully crafed noise that will force the model
+to misclassify (with high confidence) samples only marginaly different from the
+original ones.
+In lieu of
+these vulnerabilities, I am currently working on defences to harden machine
+learning systems and increase their robustness against adversarial attacks.
+My long-term goal is to contribute solutions that will shed light
+into arcane ML models and will arm developers with powerful debugging primitives
+to help identify and address subtle security, performance, and reliability
+challenges.
+
+\textbf{Previous Projects:}\\
+Before joining Columbia, I worked on several projects related to distributed,
+peer-to-peer systems, such as BitTorrent. In one project, I enhanced
+BitTorrent with an optimistic unchocking policy that improves the quality of
+inter-connections amongst peers and increases the number of peers that are both
+directly connected and interested in cooperation. My evaluation showed that the
+approach significantly outperforms BitTorrent's original unchocking policy by
+(1) increasing the number of directly cooperating peers, (2) easing the load on
+seeders by having more peers act as data intermediaries, and (3) shortening the
+bootstrapping period for fresh peers [3, 4].
+
+
+\section{PUBLICATIONS}
+  [1] V. Atlidakis, J. Andrus, R. Geambasu, D. Mitropoulos, and J. Nieh.
+  ''POSIX has become outdated.'' USENIX ;login: Magazine, 41(3), Fall 2016.
+
+  [2]  V. Atlidakis, J. Andrus, R. Geambasu, D. Mitropoulos, and J. Nieh.
+  ``POSIX Abstractions in Modern Operating Systems: The New, the old, and
+  the Missing.'' In Proceedings of the eleventh European Conference on Computer
+  Systems (EuroSys '16), London, UK, April 2016.
+
+  [3] F. Tramer, V. Atlidakis, R. Geambasu, D. Hsu, J-P Hubaux, M. Humbert,
+  A. Juels, and H. Lin. ``Discovering Unwarranted Associations in Data-Driven
+  Applications with the FairTest Testing Toolkit.'' Accepted in the second
+  European Symposium on Security and Privacy (Euro S\&P '17), Paris, France,
+  April 2017.
+
+  [4] V. Atlidakis, M. Roussopoulos, and A. Delis.
+  ``EnhancedBit: Unleashing the Potential of the Unchoking Policy in the
+  BitTorrent Protocol.'' Journal of Parallel and Distributed Computing (JPDC),
+  2014.
+
+  [5] V. Atlidakis, M. Roussopoulos, and A. Delis.
+  ``Changing the Unchoking Policy for an Enhanced Bittorrent.'' International
+  European Conference on Parallel and Distributed Computing (Euro-Par), 2012.
+
+\section{HONORS}
+  \vspace{5pt}
+  Entered department of Informatics and Telecommunications with highest score, Sep. 2005.\\
+
+  \vspace{-20pt}
+  GPA in top 3\% of department of Informatics and Telecommunications, Dec. 2011.
+
+\section{TECHNICAL \\ SKILLS}
+
+  \vspace{5pt}
+  {\sl Operating Systems:} Ubuntu, Debian, RHEL, CentOS \\
+
+  \vspace{-20pt}
+  {\sl Languages:} C/C++, Python, Java, Shell Scripting\\
+
+  \vspace{-20pt}
+  {\sl Systems/Frameworks:} Tensorflow, Theano, IBM CPLEX, Linux Kernel,
+    Android\\
+
+  \vspace{-20pt}
+  {\sl Misc:} Matlab, IDA, Apache, Nagios, Puppet, Foreman, OpenStack
+
+
+\section{COURSES} Operating Systems, Advanced Operating Systems,
+    Programming Languages, Machine Learning, Natural Language Processing,
+    Algorithms, Cryptography.
+
+
+\end{resume}
+\end{document}
